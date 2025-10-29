@@ -61,7 +61,7 @@ export default function Home() {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
-    recognition.onresult = (e: SpeechRecognitionEvent) => {
+    recognition.onresult = (e: any) => {
       try {
         const transcript = e.results[0][0].transcript;
         setInput(transcript);
