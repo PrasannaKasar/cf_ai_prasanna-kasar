@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+/* Chat styles */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.message-row {
+  display: flex;
+}
+.message-bubble {
+  max-width: 78%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 0 rgba(16,24,40,0.03);
+}
+.message-bubble.me {
+  background: #2563eb; /* blue-600 */
+  color: white;
+  border-bottom-right-radius: 0.25rem;
+}
+.message-bubble.ai {
+  background: #f3f4f6; /* gray-100 */
+  color: #111827;
+  border-bottom-left-radius: 0.25rem;
+}
+.message-bubble.system {
+  background: #fff7ed; /* orange-50 */
+  color: #92400e;
+}
+.message-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.message-meta {
+  opacity: 0.8;
+}
+

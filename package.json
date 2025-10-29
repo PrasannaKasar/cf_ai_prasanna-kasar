@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "miniflare": "^4.20251011.1",
+    "wrangler": "^4.45.0",
+    "youch": "^3.3.4"
+  }
+}
