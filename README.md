@@ -13,7 +13,7 @@ Supporting both text and voice interactions for natural health-related conversat
 
 ## 🚀 Live Demo
 
-- **Chat Interface**: [Healthcare Chatbot](https://faa644f7.cf-ai-prasanna-kasar.pages.dev/)
+- **Chat Interface**: [Healthcare Chatbot](https://cf-ai-prasanna-kasar.pages.dev/)
 - **API Endpoint**: [Cloudflare Worker](https://cloudflare-worker.pskasar-b23.workers.dev)
 
 ## ✨ Key Features
