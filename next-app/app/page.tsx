@@ -2,6 +2,9 @@
 import { useState, useRef, useEffect, memo } from "react";
 import { v4 as uuidv4 } from "uuid";
 import ReactMarkdown from "react-markdown";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 const MessageContent = memo(({ text, sender }: { text: string; sender: Message["sender"] }) => {
   // Only use markdown for AI messages
@@ -163,7 +166,18 @@ export default function Home() {
 
   return (
     <main className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">HealthCare Chatbot</h1>
+      <div className="head">
+        <h1 className="text-2xl font-bold mb-4">HealthCare Chatbot</h1>
+        <a
+          href="https://github.com/PrasannaKasar/cf_ai_prasanna-kasar"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-ghost gap-2 hover:bg-gray-100 transition-colors duration-200"
+        >
+          <FontAwesomeIcon icon={faGithub} className="text-lg" />
+          <span>GitHub</span>
+        </a>
+      </div>
       <h2>Using Llama 3.3</h2>
       <br />
       <div ref={containerRef} className="bg-base-200 p-6 rounded-lg mb-4 h-[560px] overflow-y-auto chat-container shadow-inner">
@@ -198,7 +212,7 @@ export default function Home() {
           disabled={listening}
           aria-pressed={listening}
         >
-          {listening ? 'Listening...' : '🎤'}
+          {listening ? 'Listening...' : <FontAwesomeIcon icon={faMicrophone} />}
         </button>
         <button
           onClick={sendMessage}

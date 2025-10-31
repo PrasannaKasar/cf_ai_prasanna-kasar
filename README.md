@@ -1,186 +1,150 @@
-# 💬 AI Chatbot using Cloudflare Workers & Durable Objects
+# 💬 AI Healthcare Chatbot
 
-A lightweight, AI chatbot built with 
-- **Llama 3.3** run on **Cloudflare Workers**
-- **Durable Objects** for session management and chat history
-- hosted on **Cloudflare Pages**
-- minimalist **React (Next js)** frontend.  
-It supports both text and voice input and persists conversation history via Durable Objects.  
+A modern healthcare conversational AI built with cutting-edge cloud technologies, designed to provide accurate and responsive health-related assistance.
 
----
+## 🎯 Overview
 
-## 🚀 Live Project
+- 🤖 **AI Engine**: Llama 3.3 (70B parameters) on Cloudflare Workers AI
+- 💾 **State Management**: Persistent sessions via Durable Objects
+- 🌐 **Infrastructure**: Deployed on Cloudflare's global edge network
+- ⚛️ **Frontend**: Modern Next.js 13 with App Router
 
-**Frontend URL:** [http://localhost:5173](http://localhost:5173)  
-**Backend (Worker):** [http://localhost:8787](http://localhost:8787)
+Supporting both text and voice interactions for natural health-related conversations.
 
-*(Will be updated once deployed to Cloudflare Pages & Workers)*
+## 🚀 Live Demo
 
----
+- **Chat Interface**: [Healthcare Chatbot](https://faa644f7.cf-ai-prasanna-kasar.pages.dev/)
+- **API Endpoint**: [Cloudflare Worker](https://cloudflare-worker.pskasar-b23.workers.dev)
 
-## 🧠 Features
+## ✨ Key Features
 
-- Anonymous chat sessions (no signup required)
-- Chat history persistence via Durable Objects
-- Real-time AI responses using OpenAI / AI APIs
-- Voice input via browser `SpeechRecognition` API
-- Modular frontend–backend separation
+- 🤖 **AI-Powered Chat**: Real-time responses from Llama 3.3
+- 💾 **Persistent Memory**: Chat history preserved across sessions
+- 🎤 **Voice Commands**: Intuitive speech recognition
+- 🔒 **Anonymous Access**: No login required
+- 📱 **Responsive UI**: Optimized for all devices
+- ⚡ **Edge Computing**: Global low-latency responses
 
----
+## 🛠️ Technology Stack
 
-## 🧰 Tech Stack
+### Frontend
+- ⚛️ **Next.js 13**: React framework with App Router
+- 🔷 **TypeScript**: Full type safety
+- 🎨 **DaisyUI + Tailwind**: Modern UI components
+- 🎤 **Web Speech API**: Voice interaction
+- 📡 **Fetch API**: Efficient backend communication
 
-### **Frontend**
-- React (Vite)
-- TypeScript
-- Tailwind CSS
-- SpeechRecognition API (for voice input)
-- Axios (for backend communication)
+### Backend
+- ☁️ **Cloudflare Workers**: Serverless compute at the edge
+- 💾 **Durable Objects**: Stateful session management
+- 🤖 **Workers AI**: Llama 3.3 integration
+- 🔐 **Session Handling**: Secure chat persistence
 
-### **Backend**     # If want to use custom backend
-- Cloudflare Workers (Serverless runtime)
-- Durable Objects (for session-based storage)
-- TypeScript
-- OpenAI API (or any AI model endpoint)
+## 🚀 Getting Started
 
----
+### Quick Start (Using Existing Backend)
 
-## 📦 NPM Packages Used
+1. **Setup Frontend**
+   ```bash
+   # Clone repository
+   git clone https://github.com/PrasannaKasar/cf_ai_prasanna-kasar.git
+   cd cf_ai_prasanna-kasar/next-app
 
-Below are the core packages used in this project:
+   # Install dependencies
+   npm install
 
-### **Frontend**
-```bash
-npm install npm@11.6.0 react-markdown@10.1.0 typescript@5.8.3   # required for building web app
+   # Start development server
+   npm run dev
+   ```
+
+2. **Configure Backend**  
+   In `next-app/app/page.tsx`:
+   ```typescript
+   const BACKEND_URL = "https://cloudflare-worker.pskasar-b23.workers.dev/";
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### Full Stack Development
+
+To deploy your own Cloudflare Worker backend:
+
+1. **Setup Project**
+   ```bash
+   # Clone repository
+   git clone https://github.com/PrasannaKasar/cf_ai_prasanna-kasar.git
+   cd cf_ai_prasanna-kasar
+   
+   # Install dependencies
+   cd next-app && npm install    # Frontend setup
+   cd ../cloudflare-worker && npm install  # Backend setup
+   ```
+
+2. **Deploy Backend**
+   ```bash
+   npm run deploy
+   ```
+
+3. **Update Frontend Configuration**  
+   Update `next-app/app/page.tsx`:
+   ```typescript
+   const BACKEND_URL = "https://your-worker.username.workers.dev";
+   ```
+
+4. **Start frontend**
+   ```bash
+   cd ../next-app
+   npm run dev
+   ```
+
+## 📁 Project Structure
+
 ```
-
-### **Backend**
-```bash
-npm install miniflare@4.20251011.1 wrangler@4.45.0 # additional dependecies required for building cloudflare workers web app
-```
-
-⚙️ Setup Instructions
-🟢 Option 1 — Use My Backend (Quick Setup)
-
-You only need to set up the frontend locally.
-
-Steps:
-
-Clone this repository:
-
-git clone https://github.com/yourusername/ai-chatbot.git
-cd ai-chatbot/frontend
-
-
-Install dependencies:
-
-npm install
-
-
-In the frontend source (`./next-app/app/page.tsx`), ensure the backend endpoint points to my backend:
-
-const BACKEND_URL = "[https://your-backend.workers.dev](https://cloudflare-worker.pskasar-b23.workers.dev/)";
-
-
-Start the development server:
-
-```bash
-cd next-app
-npm run dev
-```
-
-
-Visit http://localhost:5173
-
-⚡ Option 2 — Run Your Own Frontend & Backend
-
-If you want to use your own Workers setup:
-
-Steps:
-
-Clone the repo and install dependencies for both frontend and backend:
-
-```bash
-git clone https://github.com/prasannakasar/ai-chatbot.git
-cd ai-chatbot/next-app && npm install
-cd ../cloudflare-worker && npm install
-npm run dev
-npm run deploy      
-```
-
-
-Update your frontend endpoint:
-
-const BACKEND_URL = "https://your-worker-name.username.workers.dev";
-
-
-Run the frontend:
-
-cd ../frontend
-npm run dev
-
-📁 Project Structure
 .
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   ├── vite.config.ts
-│   └── .gitignore
+├── next-app/               # Frontend application
+│   ├── app/               # Next.js 13 app directory
+│   │   ├── page.tsx      # Main chat interface
+│   │   └── layout.tsx    # Root layout
+│   ├── public/           # Static assets
+│   └── package.json      # Frontend dependencies
 │
-├── backend/
+├── cloudflare-worker/     # Backend application
 │   ├── src/
-│   ├── wrangler.toml
-│   ├── package.json
-│   └── .gitignore
+│   │   └── index.ts      # Worker entry point
+│   ├── wrangler.toml     # Cloudflare config
+│   └── package.json      # Backend dependencies
 │
-└── README.md
+└── README.md             # Project documentation
+```
 
-🧾 .gitignore Recommendations
+## 📚 Learning Resources
 
-For each directory (frontend, backend, and root):
+### Cloudflare Workers
+- [Official Documentation](https://developers.cloudflare.com/workers/)
+- [Llama 3.3 Integration Guide](https://developers.cloudflare.com/workers-ai/models/llama-3.3-70b-instruct-fp8-fast/)
+- [Video Tutorial: Workers Quickstart](https://www.youtube.com/watch?v=H7Qe96fqg1M)
 
-# Node
-node_modules/
-.env
-dist/
-build/
+### Durable Objects
+- [State Management Guide](https://developers.cloudflare.com/durable-objects/reference/in-memory-state/)
 
-# Editor/OS files
-.DS_Store
-*.log
-.vscode/
+### Cloudflare Pages
+- [Pages Documentation](https://developers.cloudflare.com/pages/)
+- [Video: Deploying to Pages](https://www.youtube.com/watch?v=B2bLUc3iOsI)
 
-📚 Resources
-📘 Cloudflare Docs
+## 🧩 Additional Resources
 
-Durable Objects Overview
+Check `PROMPTS.md` for all AI prompt templates used in this project.
 
-Workers Quickstart
+## 👨‍💻 Author
 
-Wrangler CLI Reference
+**Prasanna**  
+B.Tech in Computer Engineering, VJTI Mumbai  
+*Project built for Cloudflare Workers AI Hackathon*
 
-🎥 YouTube References
+## 📝 License
 
-Cloudflare Workers Crash Course
+This project is open source under the MIT License.
 
-Durable Objects Explained Simply
+---
 
-(You can add more links here later.)
-
-🧩 Prompts Reference (PROMPTS.md)
-
-All AI prompt templates used in this project are stored in PROMPTS.md.
-This helps document and analyze your model’s behavior and design choices.
-
-👨‍💻 Author
-
-Prasanna
-B.Tech in Computer Engineering, VJTI Mumbai
-Project built as part of a Cloudflare + AI assignment
-
-📝 License
-
-This project is licensed under the MIT License — feel free to fork and modify!
-
-⚡ "Simple, fast, and serverless — powered by Cloudflare."
+⚡ *"Simple, fast, and serverless — powered by Cloudflare"*

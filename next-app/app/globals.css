@@ -12,7 +12,13 @@
   }
 }
 
-/* Chat styles */
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .chat-container {
   display: flex;
   flex-direction: column;
