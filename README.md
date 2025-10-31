@@ -139,12 +139,4 @@ Check `PROMPTS.md` for all AI prompt templates used in this project.
 
 **Prasanna**  
 B.Tech in Computer Engineering, VJTI Mumbai  
-*Project built for Cloudflare Workers AI Hackathon*
-
-## 📝 License
-
-This project is open source under the MIT License.
-
----
-
-⚡ *"Simple, fast, and serverless — powered by Cloudflare"*
+*Project built for Cloudflare Software Engineer Intern (Summer 2026) Assignment*
